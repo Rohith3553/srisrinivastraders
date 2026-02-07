@@ -3,169 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Srinivasa Traders | Jagtial</title>
+    <title>Sri Srinivasa Traders | Premium Materials</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        body { font-family: 'Poppins', sans-serif; background-color: #fcfcfc; scroll-behavior: smooth; }
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
         
-        .product-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer; overflow: hidden;
-        }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 30px rgba(0,0,0,0.1); }
+        body { font-family: 'Outfit', sans-serif; background-color: #0f172a; color: white; scroll-behavior: smooth; }
 
-        /* Full Screen Popup (Lightbox) */
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-10px);
+            border-color: #fbbf24;
+        }
+
+        /* Floating Animation for Logo */
+        .logo-float {
+            width: 100px; height: 100px; border-radius: 50%;
+            border: 3px solid #fbbf24;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+            object-fit: cover;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        /* Glowing Text */
+        .glow-text {
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+
+        /* Full Screen Lightbox Styling */
         #lightbox {
-            display: none; position: fixed; z-index: 9999; top: 0; left: 0;
+            display: none; position: fixed; z-index: 10000; top: 0; left: 0;
             width: 100%; height: 100%; background: rgba(0,0,0,0.95);
             flex-direction: column; justify-content: center; align-items: center;
         }
-        #lightbox img { max-width: 90%; max-height: 70%; border-radius: 10px; border: 3px solid #fff; }
+        #lightbox img { 
+            max-width: 90%; max-height: 65%; border-radius: 15px; 
+            box-shadow: 0 0 40px rgba(251, 191, 36, 0.3);
+            border: 2px solid #fbbf24;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #fbbf24; border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <div id="lightbox">
-        <span onclick="closeLightbox()" class="absolute top-5 right-10 text-white text-5xl cursor-pointer">&times;</span>
-        <img id="lightbox-img" src="" alt="Product">
-        <h3 id="product-name" class="text-white text-2xl font-bold mt-4"></h3>
-        <a id="whatsapp-link" href="#" target="_blank" class="mt-6 bg-green-600 text-white px-8 py-3 rounded-full font-bold flex items-center hover:bg-green-700">
-            <i class="fab fa-whatsapp mr-2 text-xl"></i> Instant Enquiry
+        <span onclick="closeLightbox()" class="absolute top-8 right-12 text-white text-6xl cursor-pointer hover:text-yellow-400">×</span>
+        <img id="lightbox-img" src="" alt="Product Image">
+        <h3 id="product-title" class="text-3xl font-bold text-yellow-400 mt-6"></h3>
+        <p id="product-desc" class="text-gray-300 mt-2 text-center px-6 max-w-xl"></p>
+        <a id="wa-btn" href="#" target="_blank" class="mt-8 bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-full font-bold flex items-center shadow-lg transform hover:scale-105 transition">
+            <i class="fab fa-whatsapp mr-3 text-2xl"></i> Inquiry on WhatsApp
         </a>
     </div>
 
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-3 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-4">
-                <img src="https://png.pngtree.com/png-vector/20240531/ourmid/pngtree-lord-venkateswara-swamy-balaji-transparent-background-png-image_12586617.png" class="god-image" alt="Logo">
+    <header class="sticky top-0 z-50 glass-card py-4 px-6 mb-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-5">
+                <img src="my-logo.jpg" onerror="this.src='https://png.pngtree.com/png-vector/20240531/ourmid/pngtree-lord-venkateswara-swamy-balaji-transparent-background-png-image_12586617.png'" class="logo-float" alt="Logo">
                 <div>
-                    <h1 class="text-2xl font-black text-blue-900 tracking-tighter">SRI SRINIVASA TRADERS</h1>
-                    <p class="text-xs font-bold text-orange-600 tracking-widest">BUILDING MATERIALS & HARDWARE</p>
+                    <h1 class="text-3xl font-black glow-text tracking-tight uppercase">Sri Srinivasa Traders</h1>
+                    <p class="text-gray-400 text-sm tracking-widest font-bold">Premium Quality Construction Hub</p>
                 </div>
             </div>
-            <nav class="flex gap-4 mt-4 md:mt-0">
-                <a href="#about" class="text-sm font-bold text-gray-700 hover:text-blue-900">ABOUT US</a>
-                <a href="#products" class="text-sm font-bold text-gray-700 hover:text-blue-900">VIEW MATERIALS</a>
-                <a href="#map" class="text-sm font-bold text-gray-700 hover:text-blue-900 underline decoration-2 decoration-yellow-500">LOCATE US</a>
+            <nav class="flex gap-6 font-bold text-sm">
+                <a href="#products" class="hover:text-yellow-400 transition">VIEW MATERIALS</a>
+                <a href="#about" class="hover:text-yellow-400 transition">ABOUT</a>
+                <a href="#map" class="bg-yellow-500 text-black px-4 py-2 rounded-lg hover:bg-yellow-400">LOCATE US</a>
             </nav>
         </div>
     </header>
 
-    <section class="relative h-[400px] flex items-center justify-center text-center text-white" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1589939705384-5185138a04b9?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center;">
-        <div class="px-4">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4 italic">Mee Illu... Maa Namatkam</h2>
-            <p class="text-lg opacity-90">Authorized Dealers for Top Brands in Jagtial</p>
+    <section class="max-w-7xl mx-auto px-6 mb-20 text-center">
+        <div class="py-20 rounded-3xl relative overflow-hidden bg-gradient-to-r from-blue-900/40 to-black border border-white/10 shadow-2xl">
+            <h2 class="text-5xl md:text-7xl font-black mb-6 leading-tight">Mee Illu... <br><span class="text-yellow-500">Maa Namatkam!</span></h2>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto italic">High-grade Cement, Paints, Pipes and All Construction Essentials at Wholesale Prices.</p>
+            <a href="https://wa.me/918890664980" class="bg-white text-black px-12 py-4 rounded-full font-black hover:bg-yellow-500 transition shadow-xl uppercase tracking-widest text-sm">Contact Owners</a>
         </div>
     </section>
 
-    <section id="about" class="py-16 px-6 max-w-5xl mx-auto text-center">
-        <h3 class="text-3xl font-bold text-blue-900 mb-6">About Us</h3>
-        <p class="text-gray-700 leading-relaxed text-lg">
-            Welcome to <b>Sri Srinivasa Traders</b>. Founded and managed by <b>Thodeti Srinivas</b> and <b>Thodeti Prem Kumar</b>, we are committed to providing high-quality construction materials. From the very first brick to the final touch of paint, we are your trusted partner in Konapur, Jagtial.
-        </p>
-    </section>
-
-    <section id="products" class="py-16 bg-gray-50 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h3 class="text-3xl font-bold text-center mb-12 text-blue-900">Our Premium Materials</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <div class="product-card bg-white rounded-2xl p-4 shadow-sm" onclick="openLightbox('https://www.mpbirlacement.com/wp-content/uploads/2019/02/logo.png', 'MP Birla Cement')">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1884&auto=format&fit=crop" class="h-48 w-full object-cover rounded-xl mb-4" alt="Cement">
-                    <h4 class="font-bold text-xl text-blue-900">MP Birla Cement</h4>
-                    <p class="text-sm text-gray-500">Ultimate strength and durability for foundations and slabs.</p>
-                </div>
-
-                <div class="product-card bg-white rounded-2xl p-4 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1589939705384-5185138a04b9?q=80&w=2070&auto=format&fit=crop', 'Asian Paints')">
-                    <img src="https://images.unsplash.com/photo-1562624314-e30d4531e89b?q=80&w=2070&auto=format&fit=crop" class="h-48 w-full object-cover rounded-xl mb-4" alt="Paints">
-                    <h4 class="font-bold text-xl text-blue-900">Asian Paints</h4>
-                    <p class="text-sm text-gray-500">Complete range of interior and exterior colors.</p>
-                </div>
-
-                <div class="product-card bg-white rounded-2xl p-4 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2070&auto=format&fit=crop', 'Plumbing & Sanitary Items')">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop" class="h-48 w-full object-cover rounded-xl mb-4" alt="Plumbing">
-                    <h4 class="font-bold text-xl text-blue-900">Plumbing & Sanitary</h4>
-                    <p class="text-sm text-gray-500">High-quality PVC pipes, fittings, and bathroom essentials.</p>
-                </div>
-
-                <div class="product-card bg-white rounded-2xl p-4 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=2070&auto=format&fit=crop', 'Kankara & Sand')">
-                    <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=2070&auto=format&fit=crop" class="h-48 w-full object-cover rounded-xl mb-4" alt="Aggregates">
-                    <h4 class="font-bold text-xl text-blue-900">Aggregates (Kankara/Sand)</h4>
-                    <p class="text-sm text-gray-500">Pure sand and all sizes of stone aggregates (kankara).</p>
-                </div>
-
-                <div class="product-card bg-white rounded-2xl p-4 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop', 'Cement Pipes')">
-                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" class="h-48 w-full object-cover rounded-xl mb-4" alt="Cement Pipes">
-                    <h4 class="font-bold text-xl text-blue-900">Cement Pipes</h4>
-                    <p class="text-sm text-gray-500">Durable cement pipes for drainage and irrigation.</p>
-                </div>
-
-                <div class="product-card bg-white rounded-2xl p-4 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop', 'Construction Materials')">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" class="h-48 w-full object-cover rounded-xl mb-4" alt="General Materials">
-                    <h4 class="font-bold text-xl text-blue-900">General Materials</h4>
-                    <p class="text-sm text-gray-500">All building work materials available at wholesale prices.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="map" class="py-16 px-6 max-w-7xl mx-auto">
-        <h3 class="text-3xl font-bold text-center mb-8 text-blue-900">Locate Us</h3>
-        <div class="h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.123456789!2d78.9!3d18.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDQ4JzAwLjAiTiA3OMKwNTQnMDAuMCJF!5e0!3m2!1sen!2sin!4v123456789" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
-        </div>
-        <p class="text-center mt-4 font-bold">Main Road Konapur, Pembatla, Jagtial, 505529</p>
-    </section>
-
-    <footer class="bg-blue-900 text-white py-12 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div>
-                <h4 class="text-xl font-bold mb-4">Sri Srinivasa Traders</h4>
-                <p class="opacity-80">Trusted by hundreds of happy home owners in Jagtial.</p>
-            </div>
-            <div>
-                <h4 class="text-xl font-bold mb-4">Contact Info</h4>
-                <p>📞 8890664980, 9912388741</p>
-                <p>📍 Konapur, Jagtial</p>
-            </div>
-            <div class="flex gap-6 items-center">
-                <a href="https://www.instagram.com/sri.srinivasa_traders22" class="text-3xl hover:text-pink-400"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/918890664980" class="text-3xl hover:text-green-400"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const phone = "918890664980";
-
-        function openLightbox(imgUrl, pName) {
-            document.getElementById('lightbox-img').src = imgUrl;
-            document.getElementById('product-name').innerText = pName;
+    <section id="products" class="max-w-7xl mx-auto px-6 py-10">
+        <h3 class="text-4xl font-black mb-16 border-l-8 border-yellow-500 pl-6 uppercase glow-text">Exclusive Inventory</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             
-            // Set WhatsApp Link based on product
-            const msg = encodeURIComponent(`Hi, I am interested in ${pName}. Please provide more details.`);
-            document.getElementById('whatsapp-link').href = `https://wa.me/${phone}?text=${msg}`;
-            
-            document.getElementById('lightbox').style.display = 'flex';
-        }
+            <div class="glass-card rounded-3xl p-6" onclick="openLightbox('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1884&auto=format&fit=crop', 'MP Birla Cement', 'Ultimate strength and durability for foundations and slabs.')">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1884&auto=format&fit=crop" class="w-full h-64 object-cover rounded-2xl mb-6 shadow-inner" alt="Cement">
+                <h4 class="text-2xl font-bold mb-2">MP Birla Cement</h4>
+                <p class="text-gray-400 text-sm">Click to View Details</p>
+            </div>
 
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
+            <div class="glass-card rounded-3xl p-6" onclick="openLightbox('https://images.unsplash.com/photo-1562624314-e30d4531e89b?q=80&w=2070&auto=format&fit=crop', 'Asian Paints', 'Complete range of interior and exterior colors.')">
+                <img src="https://images.unsplash.com/photo-1562624314-e30d4531e89b?q=80&w=2070&auto=format&fit=crop" class="w-full h-64 object-cover rounded-2xl mb-6" alt="Paints">
+                <h4 class="text-2xl font-bold mb-2">Asian Paints</h4>
+                <p class="text-gray-400 text-sm text-yellow-500 font-bold">In-Stock: All Shades</p>
+            </div>
 
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('lightbox')) {
-                closeLightbox();
-            }
-        }
-    </script>
+            <div class="glass-card rounded-3xl p-6" onclick="openLightbox('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop', 'Cement Pipes', 'Durable cement pipes for drainage and irrigation.')">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" class="w-full h-64 object-cover rounded-2xl mb-6" alt="Pipes">
+                <h4 class="text-2xl font-bold mb-2 text-white">Cement Pipes</h4>
+                <p class="text-gray-400 text-sm italic">Heavy Duty & Standard Sizes</p>
+            </div>
 
-</body>
-</html>
+            </div>
+    </section>
