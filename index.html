@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Srinivasa Traders | Jagtial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; background-color: #f8f9fa; }
+        
+        /* Floating God Image Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+        .god-image {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid #FFD700;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+            animation: float 4s ease-in-out infinite; /* Mee code ikkada undi */
+        }
+
+        /* Gradient Text for Headings */
+        .gradient-text {
+            background: linear-gradient(45deg, #b37700, #ffcc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        /* Hover animation for product cards */
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;
+            border: 1px solid #eee;
+        }
+        .product-card:hover {
+            transform: translateY(-15px); /* Mee code ikkada undi */
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-color: #f39c12;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-white py-6 text-center shadow-lg sticky top-0 z-50">
+        <img src="https://png.pngtree.com/png-vector/20240531/ourmid/pngtree-lord-venkateswara-swamy-balaji-transparent-background-png-image_12586617.png" alt="Lord Venkateswara" class="god-image mx-auto mb-3">
+        <h1 class="text-4xl font-extrabold gradient-text uppercase tracking-tighter">Sri Srinivasa Traders</h1>
+        <p class="text-gray-500 font-medium tracking-widest mt-1">MAIN ROAD KONAPUR, JAGTIAL</p>
+    </header>
+
+    <section class="hero-section h-[450px] flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-3xl">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Building Your Dreams with Strong Foundations</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://wa.me/918890664980" class="bg-green-600 hover:bg-green-700 px-10 py-4 rounded-full font-bold shadow-lg transition duration-300 flex items-center transform hover:scale-110">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i> Instant Enquiry
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 max-w-7xl mx-auto">
+        <h3 class="text-3xl font-bold text-center mb-16 text-blue-900 uppercase">Premium Materials</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="product-card p-8 rounded-2xl text-center">
+                <img src="https://www.mpbirlacement.com/wp-content/uploads/2019/02/logo.png" class="h-16 mx-auto mb-4" alt="MP Birla">
+                <h4 class="text-xl font-bold mb-2">MP Birla Cement</h4>
+                <p class="text-gray-600">Perfect for heavy construction and strong slabs.</p>
+            </div>
+
+            <div class="product-card p-8 rounded-2xl text-center">
+                <i class="fas fa-palette text-5xl text-pink-600 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">Asian Paints</h4>
+                <p class="text-gray-600">Give your home a colorful and long-lasting life.</p>
+            </div>
+
+            <div class="product-card p-8 rounded-2xl text-center">
+                <i class="fas fa-grip-lines-vertical text-5xl text-gray-500 mb-4 rotate-90"></i>
+                <h4 class="text-xl font-bold mb-2">Cement Pipes</h4>
+                <p class="text-gray-600">High-quality concrete pipes for all purposes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-blue-50 py-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-2xl font-bold text-blue-900 mb-4 underline decoration-yellow-500">MANAGED BY</h3>
+            <div class="flex flex-wrap justify-center gap-8 text-2xl font-semibold text-gray-800">
+                <span class="bg-white px-6 py-2 rounded-lg shadow-sm">Thodeti Srinivas</span>
+                <span class="bg-white px-6 py-2 rounded-lg shadow-sm">Thodeti Prem Kumar</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h4 class="text-2xl font-bold mb-4 gradient-text">Sri Srinivasa Traders</h4>
+                <p class="text-gray-400 mb-6">Best quality building materials at affordable prices in Jagtial region.</p>
+                <p class="mb-2"><i class="fas fa-phone mr-3 text-yellow-500"></i> 8890664980, 9912388741</p>
+                <div class="flex gap-6 mt-6">
+                    <a href="https://www.instagram.com/sri.srinivasa_traders22" class="text-3xl hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/918890664980" class="text-3xl hover:text-green-500 transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-2xl h-48 border-2 border-yellow-600">
+                 <a href="https://maps.app.goo.gl/NoVGdkaZM3PWyd5W6" target="_blank" class="block bg-gray-800 h-full flex items-center justify-center hover:bg-gray-700 transition">
+                    <span class="text-center p-4"><i class="fas fa-map-marker-alt text-3xl mb-2 text-red-500"></i><br>Click to View Location on Maps</span>
+                 </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
